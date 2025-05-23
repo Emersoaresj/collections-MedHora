@@ -132,7 +132,7 @@ Descrição: Retorna todos os agendamentos futuros para o paciente "Maria Silva"
 
 Para testar a API, importe a collection do Postman usando o link abaixo:
 
-[Link para a Collection do Postman MedHora](https://github.com/Emersoaresj/collections-PosTech/blob/main/MedHora.postman_collection.json)
+[Link para a Collection do Postman MedHora](https://github.com/Emersoaresj/collections-MedHora/blob/main/MedHora.postman_collection.json)
 
 ---
 
