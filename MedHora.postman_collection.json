@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "a9ff1450-2589-4eed-b0fe-cb207331adba",
+		"name": "MedHora",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36357616"
+	},
+	"item": [
+		{
+			"name": "Agendamento",
+			"item": [
+				{
+					"name": "Criar Agendamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomePaciente\": \"Emerson S\",\r\n    \"nomeMedico\": \"Dr. Carlos Pereira\",\r\n    \"dataHoraConsulta\": \"2025-05-15T11:00\",\r\n    \"motivoConsulta\": \"Consulta Cardiologista\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/consultas"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Consultas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/consultas"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Consulta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/consultas/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Consulta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomePaciente\": \"Emerson S\",\r\n    \"nomeMedico\": \"Dr. Carlos Pereira\",\r\n    \"dataHoraConsulta\": \"2025-05-15T11:00\",\r\n    \"motivoConsulta\": \"Consulta Cardiologista\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/consultas/12"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Consulta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{url}}/consultas/3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notificacao",
+			"item": [
+				{
+					"name": "Criar Notificacao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomePaciente\": \"Emerson Soares\",\r\n  \"dataHoraConsulta\": \"2025-05-10T14:30\",\r\n  \"motivoConsulta\": \"Revisão de exames\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/notificacao"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Notificacoes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomePaciente\": \"Emerson Soares\",\r\n  \"dataHoraConsulta\": \"2025-05-10T14:30\",\r\n  \"motivoConsulta\": \"Revisão de exames\"\r\n}\r\n"
+						},
+						"url": "{{url}}/notificacao/listar"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Notificacao",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomePaciente\": \"Emerson Soares\",\r\n  \"dataHoraConsulta\": \"2025-05-10T14:30\",\r\n  \"motivoConsulta\": \"Revisão de exames\"\r\n}\r\n"
+						},
+						"url": "{{url}}/notificacao/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GraphQL Agendamento",
+			"item": [
+				{
+					"name": "Buscar Agendamento por ID",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"query\": \"query { agendamentoPorId(id: 11) { id dataHora descricao paciente medico } }\"}"
+						},
+						"url": "{{url}}/graphql"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Agendamentos por Paciente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"query\": \"query { agendamentos(nomePaciente: \\\"Maria Silva\\\", somenteFuturos: true) { id dataHora descricao paciente medico } }\"}"
+						},
+						"url": "{{url}}/graphql"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
